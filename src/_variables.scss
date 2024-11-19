@@ -1,0 +1,33 @@
+$button-border-width: 2px;
+
+$breakpoints: (
+  "xs": 320px,
+  "sm": 480px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1200px,
+  "xxl": 1440px
+);
+
+$font-sizes: (
+  xs: 0.75rem,    // Extra Small text (e.g., captions)
+  sm: 0.875rem,   // Small text (e.g., subtitles)
+  base: 1rem,     // Base text (e.g., body text)
+  lg: 1.25rem,    // Large text (e.g., section headings)
+  xl: 1.5rem,     // Extra Large text (e.g., primary headings)
+  xxl: 2rem,      // Double Extra Large (e.g., page titles)
+  hero: 3rem      // Hero text (e.g., main banner text)
+);
+
+$color-primary: #8600FF;
+$color-secondary: #ff8183;
+
+$font-stack: "Montserrat", sans-serif;
+
+$padding: 5%;
+
+@mixin respond($breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+}

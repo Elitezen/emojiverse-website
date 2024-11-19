@@ -1,0 +1,189 @@
+@use "sass:map";
+@use '../../variables';
+
+.showcase {
+    position: relative;
+    background-color: variables.$color-primary;
+    padding: 1vw 10vw;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.textSide {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+
+    .text {
+        h1, p {
+            margin: 1.5% 0;
+        }
+    
+        h1 {
+            margin: 5% 0 5% -1%;
+            font-size: clamp(1.4rem , 5.5vw, 7rem);
+            line-height: 1.05;
+            color: #FFF;
+        }
+    
+        p {
+            font-size: clamp(
+                map-get($map: variables.$font-sizes, $key: "xs"), 
+                1.4vw, 
+                1.2rem
+            );
+            color: #ededed;
+            font-weight: 300;
+            max-width: 50ch;
+            line-height: 1.35;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
+        width: fit-content;
+        z-index: 2;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.5em, 1vw,1em);
+
+            align-items: center;
+            justify-content: space-between;
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+
+            li {
+                a {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+
+                    text-decoration: none;
+                    text-align: center;
+                    background-color: variables.$color-secondary;
+                    color: #FFF;
+                    font-weight: 400;
+                    border: variables.$button-border-width solid variables.$color-secondary;
+                    border-radius: 4px;
+                    padding: 0.4em;
+                    font-size: clamp(
+                        map-get($map: variables.$font-sizes, $key: "sm"), 
+                        2vw, 
+                        1.5rem
+                    );
+
+                    transition: background-color 170ms ease-in-out;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: transparent;
+                    }
+
+                    width: 19vw;
+                    max-width: 250px;
+                }
+
+                img {
+                    width: 12.5%;
+                }
+            }
+
+            .discordButton a {
+                background-color: #000ed8;
+                border: 2px solid #000ed8;
+            }
+        }
+
+        .linkButton {
+            border: none;
+            background-color: transparent;
+            width: 100%;
+
+            p {
+                color: #FFF;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.imageSide {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    width: 50%;
+
+    img {
+        margin-bottom: 5vw;
+        width: clamp(225px, 25vw, 450px);
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 7px 7px 25px #5b5b5b;
+    }
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    bottom: -20vw;
+    // border: 2px solid black;
+    width: 101%;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 650px) {
+    .showcase {
+        padding: 5vw variables.$padding;
+
+        .container {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .textSide {
+        align-items: center;
+
+        .text {
+            text-align: center;
+
+            h1 {
+                white-space: nowrap;
+                font-size: clamp(1.5rem , 9vw, 10rem);
+            }
+
+            p {
+                font-size: clamp(0.75rem , 3vw, 2rem);
+                margin: auto;
+            }
+        }
+
+        .buttons {
+            ul {
+                align-self: center;
+                gap: 0.75em;
+
+                li a {
+                    width: 15em;
+                    padding: 0.85em
+                }
+            }
+        }
+    }
+}
