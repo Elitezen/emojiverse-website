@@ -12,6 +12,10 @@
     height: auto;
     border-radius: 7px;
 
+    .iconAndText, p {
+        flex: 1;
+    }
+
     .iconAndText {
         display: flex;
         flex-direction: column;
